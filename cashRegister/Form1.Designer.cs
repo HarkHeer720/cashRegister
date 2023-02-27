@@ -2,7 +2,7 @@
 
 namespace cashRegister
 {
-    partial class DominosHuston
+    partial class dominosHouston
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace cashRegister
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DominosHuston));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dominosHouston));
             this.titleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,11 +61,12 @@ namespace cashRegister
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Blue;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(-2, -1);
+            this.titleLabel.Location = new System.Drawing.Point(-1, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(603, 27);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Dominos Huston";
+            this.titleLabel.Text = "Dominos Houston";
+            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // label1
             // 
@@ -179,6 +180,7 @@ namespace cashRegister
             // 
             // changeButton
             // 
+            this.changeButton.Enabled = false;
             this.changeButton.Location = new System.Drawing.Point(17, 319);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(268, 23);
@@ -199,6 +201,7 @@ namespace cashRegister
             // 
             // reciptButton
             // 
+            this.reciptButton.Enabled = false;
             this.reciptButton.Location = new System.Drawing.Point(17, 395);
             this.reciptButton.Name = "reciptButton";
             this.reciptButton.Size = new System.Drawing.Size(268, 23);
@@ -274,7 +277,7 @@ namespace cashRegister
             this.changeOutput.Size = new System.Drawing.Size(136, 20);
             this.changeOutput.TabIndex = 27;
             // 
-            // DominosHuston
+            // dominosHouston
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -304,8 +307,8 @@ namespace cashRegister
             this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DominosHuston";
-            this.Text = "Dominos Huston";
+            this.Name = "dominosHouston";
+            this.Text = "Dominos Houston";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,7 +16,7 @@ namespace cashRegister
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DominosHuston());
+            Application.Run(new dominosHouston());
         }
     }
 }
