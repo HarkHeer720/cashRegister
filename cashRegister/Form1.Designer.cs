@@ -66,7 +66,6 @@ namespace cashRegister
             this.titleLabel.Size = new System.Drawing.Size(603, 27);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Dominos Houston";
-            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // label1
             // 
@@ -169,7 +168,6 @@ namespace cashRegister
             this.tenderedLabel.Size = new System.Drawing.Size(77, 20);
             this.tenderedLabel.TabIndex = 14;
             this.tenderedLabel.Text = "Tendered";
-            this.tenderedLabel.Click += new System.EventHandler(this.tenderedLabel_Click);
             // 
             // tenderedInput
             // 

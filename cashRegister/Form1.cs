@@ -14,50 +14,55 @@ namespace cashRegister
 {
     public partial class dominosHouston : Form
     {
-        double pizzaPrice, pizza, pepperoniPrice, pepperoni, pepperPrice, pepper, subtotal, total, taxAmount, tendered, change;
-            
-        private void titleLabel_Click(object sender, EventArgs e)
-        {
+        // declaring variables
+        double pizza, pepperoni, pepper, subtotal, total, taxAmount, tendered, change;
 
-        }
-
-        private void tenderedLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        double pizzaPrice = 12.50;
+        double pepperPrice = 0.12;
+        double pepperoniPrice = 0.50;
         double tax = 0.13;
+
         SoundPlayer player = new SoundPlayer(Properties.Resources.printerNoise);
 
         public dominosHouston()
         {
             InitializeComponent();
+
+            // disabling the buttons
+            reciptButton.Enabled = false;
+            changeButton.Enabled = false;
+
+            // disabling the tendered input
+            tenderedInput.Enabled = false;
         }
         private void totalButton_Click(object sender, EventArgs e)
         {
             try
             {
-                pizzaPrice = 12.50;
+                // getting info from inputs
                 pizza = Convert.ToDouble(pizzaInput.Text);
-
-                pepperoniPrice = 0.50;
                 pepperoni = Convert.ToDouble(pepperoniInput.Text);
-
-                pepperPrice = 0.12;
                 pepper = Convert.ToDouble(pepperInput.Text);
 
+                // calculating price
                 subtotal = (pizzaPrice * pizza) + (pepperoniPrice * pepperoni) + (pepperPrice * pepper);
                 taxAmount = subtotal * tax;
                 total = subtotal + taxAmount;
 
+                // displaying cost
                 subtotalOutput.Text = $"{subtotal.ToString("C")}";
                 taxOutput.Text = $"{taxAmount.ToString("C")}";
                 totalOutput.Text = $"{total.ToString("C")}";
 
+                // enabling changeButton
                 changeButton.Enabled = true;
+
+                // disabling the tendered input
+                tenderedInput.Enabled = true;
             }
             catch
             {
+                // setting all the inputs and outputs to ERROR
                 pizzaInput.Text = "ERROR";
                 pepperoniInput.Text = "ERROR";
                 pepperInput.Text = "ERROR";
@@ -71,7 +76,17 @@ namespace cashRegister
 
                 reciptLabel.Text = "ERROR";
 
+                // reseting variables
+                pizza = 0;
+                pepperoni = 0;
+                pepper = 0;
+
+                // disabling the buttons
+                reciptButton.Enabled = false;
                 changeButton.Enabled = false;
+
+                // disabling the tendered input
+                tenderedInput.Enabled = false;
             }
         }
 
@@ -79,15 +94,19 @@ namespace cashRegister
         {
             try
             {
+                // getting tendered input
                 tendered = Convert.ToDouble(tenderedInput.Text);
-                change = tendered - total;
 
+                // calculating and siplaying change
+                change = tendered - total;
                 changeOutput.Text = $"{change.ToString("C")}";
 
+                // enabling the recipt button
                 reciptButton.Enabled = true;
             }
             catch
             {
+                // setting all the inputs and outputs to ERROR
                 pizzaInput.Text = "ERROR";
                 pepperoniInput.Text = "ERROR";
                 pepperInput.Text = "ERROR";
@@ -101,15 +120,27 @@ namespace cashRegister
 
                 reciptLabel.Text = "ERROR";
 
+                // reseting variables
+                pizza = 0;
+                pepperoni = 0;
+                pepper = 0;
+
+                // disabling the recipt button
                 reciptButton.Enabled = false;
+                changeButton.Enabled = false;
+
+                // disabling the tendered input
+                tenderedInput.Enabled = false;
             }
         }
 
         private void reciptButton_Click(object sender, EventArgs e)
         {
+            // playing the recipt sound
             player.Play();
             Thread.Sleep(350);
 
+            // printing the recipt
             reciptLabel.Text = $"\n\n                              Dominos Houston";
             Refresh();
             Thread.Sleep(600);
@@ -154,21 +185,31 @@ namespace cashRegister
         }
         private void newOrderButton_Click(object sender, EventArgs e)
         {
-                pizzaInput.Text = "";
-                pepperoniInput.Text = "";
-                pepperInput.Text = "";
+            // clearing the text boxes
+            pizzaInput.Text = "";
+            pepperoniInput.Text = "";
+            pepperInput.Text = "";
 
-                subtotalOutput.Text = "";
-                taxOutput.Text = "";
-                totalOutput.Text = "";
+            subtotalOutput.Text = "";
+            taxOutput.Text = "";
+            totalOutput.Text = "";
 
-                tenderedInput.Text = "";
-                changeOutput.Text = "";
+            tenderedInput.Text = "";
+            changeOutput.Text = "";
 
-                reciptLabel.Text = "";
+            reciptLabel.Text = "";
 
+            // resetting variables
+            pizza = 0;
+            pepperoni = 0;
+            pepper = 0;
+
+            // disabling buttons
             changeButton.Enabled = false;
             reciptButton.Enabled = false;
+
+            // disabling the tendered input
+            tenderedInput.Enabled = false;
         }
     }
 }
